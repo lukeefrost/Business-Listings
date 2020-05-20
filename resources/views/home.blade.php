@@ -9,12 +9,27 @@
 
                 <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
+                        <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    You are logged in!
+                    <h3>Your Listings</h3>
+                    @if (count($listings))
+                      <table class="table table-striped">
+                        <tr>
+                          <th>Company</th>
+                        </tr>
+                        @foreach ($listings as $listing)
+                        <tr>
+                          <td>{{ $listing->name }}</td>
+                        </tr>
+                        @endforeach
+                      </table>
+
+                    @else
+                      <p>You don't have any listings yet!</p>
+                    @endif
                 </div>
             </div>
         </div>
