@@ -22,6 +22,14 @@
                         @foreach ($listings as $listing)
                         <tr>
                           <td>{{ $listing->name }}</td>
+                          <td>
+                            <form class="float-right m1-2" action="/listings/{{ $listing->id }}" method="post">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" name="button" class="btn btn-danger">Delete</button>
+
+                            </form>
+                            <a href="/listings/{{ $listing->id }}/edit" class="btn btn-info float-right">Edit</a></td>
                         </tr>
                         @endforeach
                       </table>
