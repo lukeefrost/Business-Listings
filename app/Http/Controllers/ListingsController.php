@@ -16,7 +16,7 @@ class ListingsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' -> ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
     /**
@@ -51,6 +51,7 @@ class ListingsController extends Controller
         $this->validate($request, [
           'name' => 'required',
           'address' => 'required',
+          'website' => 'required',
           'email' => 'required|email',
           'phone' => 'required|integer',
           'bio' => 'required'

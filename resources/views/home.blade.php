@@ -24,8 +24,8 @@
                           <td>{{ $listing->name }}</td>
                           <td>
                             <form class="float-right m1-2" action="/listings/{{ $listing->id }}" method="post">
-                              @csrf
-                              @method('DELETE')
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
                               <button type="submit" name="button" class="btn btn-danger">Delete</button>
 
                             </form>
